@@ -33,7 +33,6 @@ export class AppComponent extends LitElement {
     LocalStorage.get(['user']).pipe(
       take(1)
     ).subscribe((data: ILocalStorageData) =>{
-      console.log(data);
       AppState.loggedUser.next(Boolean(data['user']) ? { username: data['user'] }: null);
     });
   }

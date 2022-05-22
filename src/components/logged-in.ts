@@ -6,7 +6,7 @@ import { AppState } from '../state/app-state';
 
 @customElement('logged-in')
 export class LoggedInComponent extends LitElement {
-	static styles = css`
+  static styles = css`
     h2 {
       overflow-wrap: break-word;
       max-width: 250px;
@@ -21,23 +21,22 @@ export class LoggedInComponent extends LitElement {
       padding: 15px;
       font-size: 14px;
       cursor: pointer;
-    }
-  `;
+    }`;
 
-	@property() username = '';
+  @property() username = '';
 
-	render(): TemplateResult {
-		return html`
+  render(): TemplateResult {
+    return html`
       <div>
         <h2>Hi, ${this.username}</h2>
         <button class="logout-button" @click=${this.logout} class="submit-button">Logout</button>
       </div>  
     `;
-	}
+  }
 
-	logout(): void {
-		LocalStorage.remove(['user']).pipe(
-			take(1)
-		).subscribe(() => AppState.loggedUser.next(null));
-	}
+  logout(): void {
+    LocalStorage.remove(['user']).pipe(
+      take(1)
+    ).subscribe(() => AppState.loggedUser.next(null));
+  }
 }

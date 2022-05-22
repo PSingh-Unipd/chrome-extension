@@ -2,7 +2,10 @@ const path = require('path');
 
 module.exports = {
 	mode: "production",
-	entry: './src/app.ts',
+	entry:  {
+		bundle: './src/app.ts',
+		background: './src/workers/background.ts'
+	},
 	module: {
 		rules: [
 			{
@@ -21,7 +24,7 @@ module.exports = {
 		]
 	},
 	output: {
-		filename: 'bundle.js',
+		filename: '[name].js',
 		path: path.resolve(__dirname, 'public')
 	},
 	devServer: {

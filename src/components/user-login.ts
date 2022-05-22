@@ -52,27 +52,13 @@ export class LoggedInComponent extends LitElement {
 
   render(): TemplateResult {
     return html`
-    <div class="login">
+      <div class="login">
         <h2 class="title">Login</h2>
         <form class="form" @submit=${this.login}>
-            <input 
-							type="text" 
-							id="username" 
-							title="username"
-							placeholder="username"
-							class="form-input"
-							@change=${this.handlePasswordUsernameValueChange} 
-							required />
-            <input 
-							type="password" 
-							id="password" 
-							title="password" 
-							placeholder="password" 
-							class="form-input" 
-							@change=${this.handlePasswordValueChange} 
-							required />
-              <span class="password-invalid">${this.invalidPassword}</span>
-            <button type="submit" class="submit-button" @disabled=${true}>Login</button>
+          <input type="text" id="username" title="username" placeholder="username" class="form-input" @change=${this.handlePasswordUsernameValueChange} required />
+          <input type="password" id="password" title="password" placeholder="password" class="form-input" @change=${this.handlePasswordValueChange} required />
+          <span class="password-invalid">${this.invalidPassword}</span>
+          <button type="submit" class="submit-button" @disabled=${true}>Login</button>
         </form>
     </div>
     `;
