@@ -1,5 +1,5 @@
 import { take } from 'rxjs';
-import { ILocalStorageData, LocalStorage } from '../utils/local-storage';
+import { ILocalStorageData, LocalStorage } from './utils/local-storage';
 /**
  * API: https://developer.chrome.com/docs/extensions/reference/idle/
  * Min interval is 15s
@@ -11,7 +11,7 @@ chrome.idle.onStateChanged.addListener(
       LocalStorage.get(['user']).pipe(
         take(1)
       ).subscribe((data: ILocalStorageData) => {
-        if(Boolean(data['user'])) {
+        if (data['user']) {
           alert();
         }
       });

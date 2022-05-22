@@ -48,7 +48,7 @@ export class LoggedInComponent extends LitElement {
   `;
 
   formValues: { username: string, password: string } = { username: '', password: '' };
-  @state() invalidPassword: string = '';
+  @state() invalidPassword = '';
 
   render(): TemplateResult {
     return html`

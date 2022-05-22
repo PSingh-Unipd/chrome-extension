@@ -33,7 +33,7 @@ export class AppComponent extends LitElement {
     LocalStorage.get(['user']).pipe(
       take(1)
     ).subscribe((data: ILocalStorageData) =>{
-      AppState.loggedUser.next(Boolean(data['user']) ? { username: data['user'] }: null);
+      AppState.loggedUser.next(data['user'] ? { username: data['user'] }: null);
     });
   }
 
@@ -46,5 +46,5 @@ export class AppComponent extends LitElement {
 }
 
 // Injecting root component(app-component) inside div tag with 'app' id
-let appTag = document.getElementById('app') as HTMLInputElement;
+const appTag = document.getElementById('app') as HTMLInputElement;
 appTag.innerHTML = `<app-component></app-component>`;

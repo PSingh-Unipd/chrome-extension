@@ -5,13 +5,17 @@
   "main": "index.js",
   "scripts": {
     "serve": "webpack serve",
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "eslint . --ext .ts"
   },
   "keywords": [],
   "author": "Parwinder Singh",
   "license": "ISC",
   "devDependencies": {
     "@types/chrome": "^0.0.188",
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.16.0",
     "ts-loader": "^9.3.0",
     "typescript": "^4.6.4",
     "webpack": "^5.72.1",

@@ -8,5 +8,5 @@ export interface IAppState {
  * Simple user state
  */
 export class AppState {
-	static loggedUser: BehaviorSubject<IAppState | null> = new BehaviorSubject<IAppState | null>(null);
+  static loggedUser: BehaviorSubject<IAppState | null> = new BehaviorSubject<IAppState | null>(null);
 }

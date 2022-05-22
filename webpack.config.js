@@ -4,7 +4,7 @@ module.exports = {
 	mode: "production",
 	entry:  {
 		bundle: './src/app.ts',
-		background: './src/workers/background.ts'
+		background: './src/background.ts'
 	},
 	module: {
 		rules: [
