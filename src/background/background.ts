@@ -6,7 +6,7 @@ try {
   chrome.idle.setDetectionInterval(15);
   chrome.idle.onStateChanged.addListener((idleStatus: string): void => {
 
-    // If user is incative for 15s (minimam allowed value)
+    // If user is inactive for 15s (minimum allowed value)
     if (idleStatus === 'idle') {
 
       chrome.storage.local.get(['user'], (result): void => {
@@ -19,7 +19,7 @@ try {
 
             const activeTab: chrome.tabs.Tab = tabs[0];
 
-            // It is not possible to add content to any chrome page
+            // It is not possible to add content to any chrome:// page.
             if (activeTab && !activeTab.url?.includes('chrome://')) {
 
               chrome.scripting.executeScript({
