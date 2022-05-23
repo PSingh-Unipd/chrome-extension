@@ -1,4 +1,8 @@
 try {
+  /**
+   * idle interval min time is 15s
+   * https://developer.chrome.com/docs/extensions/reference/idle/
+   */
   chrome.idle.setDetectionInterval(15);
   chrome.idle.onStateChanged.addListener((idleStatus: string): void => {
 
@@ -22,8 +26,7 @@ try {
                 func: injectIdleComponent,
                 target: { tabId: activeTab.id as number },
                 args: [result['user']]
-              },
-                () => { });
+              });
             }
           })
         }
@@ -39,14 +42,14 @@ function injectIdleComponent(username: string): void {
   // If it's not there create host div
   if (document.querySelector('.chrome-extension-alert-demo-parwinder') === null) {
 
-    let hostElment: HTMLDivElement = document.createElement('div');
+    const hostElment: HTMLDivElement = document.createElement('div');
     hostElment.className = 'chrome-extension-alert-demo-parwinder';
     document.body.appendChild(hostElment);
   }
   
-  let hostElment: HTMLElement = document.querySelector('.chrome-extension-alert-demo-parwinder')!;
-  let rootEl: ShadowRoot = hostElment.shadowRoot ? hostElment.shadowRoot : hostElment?.attachShadow({ mode: 'open' });
-  let divEl: HTMLDivElement = document.createElement('div');
+  const hostElment: HTMLElement = document.querySelector('.chrome-extension-alert-demo-parwinder')!;
+  const rootEl: ShadowRoot = hostElment.shadowRoot ? hostElment.shadowRoot : hostElment?.attachShadow({ mode: 'open' });
+  const divEl: HTMLDivElement = document.createElement('div');
   divEl.className = 'div root-class';
   
   divEl.innerHTML = `
@@ -92,11 +95,11 @@ function injectIdleComponent(username: string): void {
   rootEl?.appendChild(divEl);
 
   rootEl.getElementById('button-yes')?.addEventListener('click', () => {
-    rootEl.removeChild(rootEl.querySelector('div')!); // removes first div
+    rootEl.removeChild(rootEl.querySelector('div') as HTMLDivElement);
     window.open('https://help.nickelled.com/', '_blank');
   });
 
   rootEl.getElementById('button-no')?.addEventListener('click', () => {
-    rootEl.removeChild(rootEl.querySelector('div')!); // removes first div
+    rootEl.removeChild(rootEl.querySelector('div') as HTMLDivElement);
   });
 }
