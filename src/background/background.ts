@@ -95,11 +95,11 @@ function injectIdleComponent(username: string): void {
   rootEl?.appendChild(divEl);
 
   rootEl.getElementById('button-yes')?.addEventListener('click', () => {
-    rootEl.removeChild(rootEl.querySelector('div') as HTMLDivElement);
+    rootEl.removeChild(rootEl.querySelector('div')!);
     window.open('https://help.nickelled.com/', '_blank');
   });
 
   rootEl.getElementById('button-no')?.addEventListener('click', () => {
-    rootEl.removeChild(rootEl.querySelector('div') as HTMLDivElement);
+    rootEl.removeChild(rootEl.querySelector('div')!);
   });
 }
