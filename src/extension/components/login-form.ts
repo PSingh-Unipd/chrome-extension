@@ -4,9 +4,12 @@ import { customElement, state } from 'lit/decorators.js';
 import { LocalStorage } from '../utils/local-storage';
 import { AppState } from '../state/app-state';
 
-@customElement('user-login')
-export class LoggedInComponent extends LitElement {
+@customElement('login-form')
+export class LoginFormComponent extends LitElement {
   static styles = css`
+    :host {
+      box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%), 0 5px 5px 0 rgb(0 0 0 / 24%);
+    }
     .login {
         padding: 20px 25px;
         background: white;

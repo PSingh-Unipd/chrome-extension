@@ -1,9 +1,10 @@
 {
-    "name": "Getting Started Example",
-    "description": "Build an Extension!",
+    "name": "Login Extension",
+    "description": "Simple demo extension with shandow web components",
     "version": "1.0",
     "manifest_version": 3,
-    "permissions": ["storage", "idle"],
+    "permissions": ["storage", "idle", "tabs", "scripting"],
+    "host_permissions": ["<all_urls>"],
     "action": {
       "default_popup": "index.html"
     },

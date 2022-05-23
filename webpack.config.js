@@ -1,10 +1,11 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
 	mode: "production",
 	entry:  {
-		bundle: './src/app.ts',
-		background: './src/background.ts'
+		bundle: './src/extension/app.ts',
+		background: './src/background/background.ts'
 	},
 	module: {
 		rules: [
@@ -20,7 +21,7 @@ module.exports = {
 	resolve: {
 		extensions: [
 			'.ts',
-			'.js' // Not really necessary in this case
+			'.js' 
 		]
 	},
 	output: {
@@ -34,4 +35,9 @@ module.exports = {
 		compress: true,
 		port: 9000,
 	},
+	optimization: {
+    minimizer: [new TerserPlugin({
+      extractComments: false,
+    })],
+  }
 }

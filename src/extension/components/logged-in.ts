@@ -7,9 +7,10 @@ import { AppState } from '../state/app-state';
 @customElement('logged-in')
 export class LoggedInComponent extends LitElement {
   static styles = css`
-    h2 {
+    h3 {
       overflow-wrap: break-word;
       max-width: 250px;
+      color: #fff;
     }
     .logout-button {
       text-transform: uppercase;
@@ -28,7 +29,7 @@ export class LoggedInComponent extends LitElement {
   render(): TemplateResult {
     return html`
       <div>
-        <h2>Hi, ${this.username}</h2>
+        <h3>Hi {{ ${this.username} }} </h3>
         <button class="logout-button" @click=${this.logout} class="submit-button">Logout</button>
       </div>  
     `;

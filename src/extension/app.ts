@@ -4,7 +4,7 @@ import { customElement, state } from 'lit/decorators.js';
 import { LocalStorage, ILocalStorageData } from './utils/local-storage';
 import { AppState, IAppState } from './state/app-state';
 import './components/logged-in';
-import './components/user-login';
+import './components/login-form';
 import './components/socials-links';
 
 @customElement('app-component')
@@ -39,7 +39,7 @@ export class AppComponent extends LitElement {
 
   render(): TemplateResult {
     return html`${(this.loggedUser === null
-      ? html`<user-login></user-login> <socials-links></socials-links>`
+      ? html`<login-form></login-form><socials-links></socials-links>`
       : html`<logged-in .username=${this.loggedUser.username}>logout</logged-in>`
     )}`;
   }
